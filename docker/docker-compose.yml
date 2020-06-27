@@ -1,0 +1,14 @@
+version: '2.3'
+
+services:
+    python:
+        build: .
+        runtime: nvidia
+        environment:
+            - NVIDIA_VISIBLE_DEVICES=all
+            - NVIDIA_DRIVER_CAPABILITIES=all
+        volumes:
+            - ..:/usr/src
+        working_dir: /usr/src
+        shm_size: '2gb'
+        command: 'python _test_.py'
