@@ -9,6 +9,8 @@ ImageNet normalize transform
 '''
 ImageNetNormalize = T.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
 
+def get_device():
+    return torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
 def plot_confusion_matrix(
     predicted, target, label_names, filename='./cm.png',
